@@ -5,71 +5,97 @@ import java.util.Arrays;
 /**
  * Algorithme
  *
-'''procédure''' tri_fusion(tableau t)
+'''procedure''' tri_fusion(tableau t)
     n = longueur(t)
     si n > 1 alors
-        u = tri_fusion(t[1], …, t[n / 2]) // première moitié
-        v = tri_fusion(t[n / 2 + 1], …, t[n]) // deuxième moitié
-        a = 1 // pointeur pour parcourir les éléments de u
-        b = 1 // pointeur pour parcourir les éléments de v
+        u = tri_fusion(t[1], …, t[n / 2]) // premiere moitie
+        v = tri_fusion(t[n / 2 + 1], …, t[n]) // deuxieme moitie
+        a = 1 // pointeur pour parcourir les elements de u
+        b = 1 // pointeur pour parcourir les elements de v
         '''pour''' i '''allant de''' 1 '''à''' n '''faire'''
-            '''si''' (a <= longueur(u)) // si tous les éléments de u n'ont pas été parcourus
-                et (b > longueur(v) // et si tous les éléments de v ont été parcourus
-                ou u[a] ≤ v[b]) '''alors''' // ou si l'élément courant de u est plus petit
-                t[i] = u[a] // on choisit l'élément courant de u comme élément suivant de t
+            '''si''' (a <= longueur(u)) // si tous les elements de u n'ont pas ete parcourus
+                et (b > longueur(v) // et si tous les elements de v ont ete parcourus
+                ou u[a] ≤ v[b]) '''alors''' // ou si l'element courant de u est plus petit
+                t[i] = u[a] // on choisit l'element courant de u comme element suivant de t
                 a = a + 1 // on avance dans u
             '''sinon'''
-                t[i] = v[b] // on choisit l'élément courant de v comme élément suivant de t
+                t[i] = v[b] // on choisit l'element courant de v comme element suivant de t
                 b = b + 1 // on avance dans v
             '''fin si
         '''fin pour'''
     '''fin si'''
     renvoyer t
-'''fin procédure'''
+'''fin procedure'''
  */
 public class TriFusion {
 	
-	public int[] trier(int [] tabToSort, int tabSize) {
+	private int [] tab;
+	
+	/**
+	 * Constructeur permettant de définir le tableau
+	 * @param tab Le tableau
+	 */
+	public TriFusion(int [] tab) {
+		this.tab = tab;
+	}
+	
+	/**
+	 * Méthode permettant de trier le tableau
+	 */
+	public void trier() {
 		
-		int indexMax = tabSize - 1;
-		
+		int tabSize = tab.length;
+
 		if (tabSize > 1) {
 			
-			// première moitié
-			int [] firstSlice = trier(Arrays.copyOfRange(tabToSort, 0, tabSize/2), tabSize/2);
+			int middleTabIndex = tabSize/2;
+			TriFusion fusion;
 			
-			// deuxième moitié
-			int [] secondSlice = trier(Arrays.copyOfRange(tabToSort, tabSize/2, tabSize), tabSize - tabSize/2);
+			// premiere moitie moitie du tableau
+			fusion = new TriFusion(Arrays.copyOfRange(tab, 0, middleTabIndex));
+			fusion.trier();
+			int[] firstSlice = fusion.getTab();
 			
-			// pointeur pour parcourir les éléments de firstSlice
-			int firstPtr = 0;
+			// deuxieme moitie du tableau
+			fusion = new TriFusion(Arrays.copyOfRange(tab, middleTabIndex, tabSize));
+			fusion.trier();
+			int[] secondSlice = fusion.getTab();
 			
-			// pointeur pour parcourir les éléments de secondSlice
-			int secondPtr = 0;
+			// pointeur pour parcourir les elements de firstSlice
+			int firstSlicePtr = 0;
 			
-			for (int i = 0; i<indexMax; i++) {
+			// pointeur pour parcourir les elements de secondSlice
+			int secondSlicePtr = 0;
+			
+			for (int i = 0; i<tabSize; i++) {
 				
-				// si tous les éléments de firstSlice n'ont pas été parcourus
-				// et si tous les éléments de secondSlice ont été parcourus
-				// ou si l'élément courant de firstSlice est plus petit
-				if ((firstPtr < firstSlice.length) && (secondPtr >= secondSlice.length || firstSlice[firstPtr] <= secondSlice[secondPtr])) {
+				if ((firstSlicePtr < middleTabIndex) // si tous les elements de firstSlice n'ont pas ete parcourus
+					&& (secondSlicePtr >= (tabSize - middleTabIndex) // et si tous les elements de secondSlice ont ete parcourus
+					|| firstSlice[firstSlicePtr] <= secondSlice[secondSlicePtr]) // ou si l'element courant de firstSlice est plus petit
+				) {
 					
-					// on choisit l'élément courant de firstSlice comme élément suivant de tab
-					tabToSort[i] = firstSlice[firstPtr];
+					// on choisit l'element courant de firstSlice comme element suivant de tab
+					tab[i] = firstSlice[firstSlicePtr];
 					
 					// on avance dans firstSlice
-					firstPtr = firstPtr + 1;
+					firstSlicePtr = firstSlicePtr + 1;
 				} else {
 					
-					// on choisit l'élément courant de secondSlice comme élément suivant de tab
-					tabToSort[i] = secondSlice[secondPtr];
+					// on choisit l'element courant de secondSlice comme element suivant de tab
+					tab[i] = secondSlice[secondSlicePtr];
 					
 					// on avance dans secondSlice
-					secondPtr = secondPtr + 1;
+					secondSlicePtr = secondSlicePtr + 1;
 				}
 			}
 		}
-		
-		return tabToSort;
+	}
+	
+	/**
+	 * Méthode pour recupérer le tableau
+	 * @return tableau
+	 */
+	public int[] getTab() {
+		return this.tab;
 	}
 }
