@@ -1,7 +1,8 @@
 package algorithmes;
 
-public class TriParComptage {
-/*
+/**
+ * Algorithme
+ * 
 fonction triParComptage(tab, borneSuperieure):
    // Initialisation des variables
    tabComptage[borneSuperieure + 1]
@@ -26,6 +27,8 @@ fonction triParComptage(tab, borneSuperieure):
   finPour
   retourne tab 
 */
+public class TriParComptage {
+
 	private int borneSuperieure;
 	private int tailleTab;
 	private int[] tabComptage;
