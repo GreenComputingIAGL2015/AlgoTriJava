@@ -32,7 +32,6 @@ public class TriABullesOptimise {
 					this.tab[i + 1] = tmp;
 					echange = true;
 				}
-				
 			}
 			
 			tabSize = tabSize - 1;

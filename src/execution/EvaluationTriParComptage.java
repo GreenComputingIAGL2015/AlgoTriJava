@@ -1,5 +1,7 @@
 package execution;
 
+import java.util.Scanner;
+
 import algorithmes.TriParComptage;
 import util.TableauUtils;
 
@@ -12,15 +14,19 @@ public class EvaluationTriParComptage {
 		
 		if (args.length > 0 && Integer.parseInt(args[0]) > 0) {
 			
-			// récupération nb éléments la ligne des commandes
-			int nbElementsTab = Integer.parseInt(args[0]);
+			// rï¿½cupï¿½ration nb ï¿½lï¿½ments la ligne des commandes
+			Scanner keyboard = new Scanner(System.in);
+			System.out.println("enter an integer");
+			int nbElementsTab = keyboard.nextInt();
+			
+			//int nbElementsTab = Integer.parseInt(args[0]);
 			
 			// initialisation du tableau
 			EvaluationTriParComptage.tab = TableauUtils.initTab(nbElementsTab);
 			EvaluationTriParComptage.borneSuperieure = TableauUtils.setMax(EvaluationTriParComptage.tab);
 			
 			// affichage tableau avant tri
-			System.out.println("Nb éléments : " + nbElementsTab);
+			System.out.println("Nb ï¿½lï¿½ments : " + nbElementsTab);
 			System.out.println("Borne superieure : " + EvaluationTriParComptage.borneSuperieure);
 			System.out.println("Tableau avant tri : " + TableauUtils.affiche(EvaluationTriParComptage.tab));
 			
@@ -28,10 +34,10 @@ public class EvaluationTriParComptage {
 			TriParComptage comptage = new TriParComptage(EvaluationTriParComptage.tab, EvaluationTriParComptage.borneSuperieure);
 			comptage.trier();
 			
-			// affichage tableau après tri
-			System.out.println("Tableau apès tri : " + TableauUtils.affiche(EvaluationTriParComptage.tab));
+			// affichage tableau aprï¿½s tri
+			System.out.println("Tableau apï¿½s tri : " + TableauUtils.affiche(EvaluationTriParComptage.tab));
 		} else {
-			System.out.println("Merci de spécifier le nombre d'éléments du tableau à trier");
+			System.out.println("Merci de spï¿½cifier le nombre d'ï¿½lï¿½ments du tableau ï¿½ trier");
 		}
 	}
 }

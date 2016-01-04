@@ -1,5 +1,7 @@
 package execution;
 
+import java.util.Scanner;
+
 import algorithmes.TriFusion;
 import util.TableauUtils;
 
@@ -11,24 +13,28 @@ public class EvaluationTriFusion {
 		
 		if (args.length > 0 && Integer.parseInt(args[0]) > 0) {
 			
-			// récupération nb éléments la ligne des commandes
-			int nbElementsTab = Integer.parseInt(args[0]);
+			// rï¿½cupï¿½ration nb ï¿½lï¿½ments la ligne des commandes
+			Scanner keyboard = new Scanner(System.in);
+			System.out.println("Nombre d'Ã©lÃ©ments du tableau :");
+			int nbElementsTab = keyboard.nextInt();
+			
+			//int nbElementsTab = Integer.parseInt(args[0]);
 			
 			// initialisation du tableau
 			EvaluationTriFusion.tab = TableauUtils.initTab(nbElementsTab);
 			
 			// affichage tableau avant tri
-			System.out.println("Nombre d'éléments du tableau : " + nbElementsTab);
+			System.out.println("Nombre d'ï¿½lï¿½ments du tableau : " + nbElementsTab);
 			System.out.println("Tableau avant tri : " + TableauUtils.affiche(EvaluationTriFusion.tab));
 			
 			// tri par comptage
 			TriFusion fusion = new TriFusion(EvaluationTriFusion.tab);
 			fusion.trier();
 			
-			// affichage tableau après tri
-			System.out.println("Tableau apès tri : " + TableauUtils.affiche(EvaluationTriFusion.tab));
+			// affichage tableau aprï¿½s tri
+			System.out.println("Tableau apï¿½s tri : " + TableauUtils.affiche(EvaluationTriFusion.tab));
 		} else {
-			System.out.println("Merci de spécifier le nombre d'éléments du tableau à trier");
+			System.out.println("Merci de spï¿½cifier le nombre d'ï¿½lï¿½ments du tableau ï¿½ trier");
 		}
 	}
 }

@@ -12,7 +12,7 @@ public class TableauUtils {
 	public static int [] initTab(int nbElements) {
 		
 		int [] tab = new int[nbElements];
-		int max = 100;
+		int max = nbElements;
 		int min = 0;
 		Random rand = new Random();
 		
