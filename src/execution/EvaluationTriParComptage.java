@@ -16,7 +16,7 @@ public class EvaluationTriParComptage {
 			
 			// r�cup�ration nb �l�ments la ligne des commandes
 			Scanner keyboard = new Scanner(System.in);
-			System.out.println("enter an integer");
+			System.out.println("Nombre d'éléments du tableau :");
 			int nbElementsTab = keyboard.nextInt();
 			
 			//int nbElementsTab = Integer.parseInt(args[0]);
