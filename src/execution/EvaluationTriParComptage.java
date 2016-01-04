@@ -12,7 +12,7 @@ public class EvaluationTriParComptage {
 	
 	public static void main(String[] args) {
 		
-		// r�cup�ration nb �l�ments la ligne des commandes
+		// recuperation nb elements la ligne des commandes
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Nombre d'éléments du tableau :");
 		int nbElementsTab = keyboard.nextInt();
@@ -23,7 +23,7 @@ public class EvaluationTriParComptage {
 		EvaluationTriParComptage.borneSuperieure = TableauUtils.setMax(EvaluationTriParComptage.tab);
 		
 		// affichage tableau avant tri
-		System.out.println("Nb �l�ments : " + nbElementsTab);
+		System.out.println("Nb elements : " + nbElementsTab);
 		System.out.println("Borne superieure : " + EvaluationTriParComptage.borneSuperieure);
 		System.out.println("Tableau avant tri : " + TableauUtils.affiche(EvaluationTriParComptage.tab));
 		
@@ -31,7 +31,7 @@ public class EvaluationTriParComptage {
 		TriParComptage comptage = new TriParComptage(EvaluationTriParComptage.tab, EvaluationTriParComptage.borneSuperieure);
 		comptage.trier();
 		
-		// affichage tableau apr�s tri
-		System.out.println("Tableau ap�s tri : " + TableauUtils.affiche(EvaluationTriParComptage.tab));
+		// affichage tableau apres tri
+		System.out.println("Tableau apes tri : " + TableauUtils.affiche(EvaluationTriParComptage.tab));
 	}
 }

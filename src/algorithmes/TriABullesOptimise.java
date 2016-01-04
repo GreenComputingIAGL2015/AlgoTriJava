@@ -5,7 +5,7 @@ public class TriABullesOptimise {
 	private int [] tab;
 	
 	/**
-	 * Constructeur permettant de définir le tableau
+	 * Constructeur permettant de definir le tableau
 	 * @param tab Le tableau
 	 */
 	public TriABullesOptimise(int [] tab) {
@@ -13,7 +13,7 @@ public class TriABullesOptimise {
 	}
 	
 	/**
-	 * Méthode permettant de trier le tableau
+	 * Methode permettant de trier le tableau
 	 */
 	public void trier() {
 		

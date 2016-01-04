@@ -32,7 +32,7 @@ public class TriFusion {
 	private int [] tab;
 	
 	/**
-	 * Constructeur permettant de définir le tableau
+	 * Constructeur permettant de definir le tableau
 	 * @param tab Le tableau
 	 */
 	public TriFusion(int [] tab) {
@@ -40,7 +40,7 @@ public class TriFusion {
 	}
 	
 	/**
-	 * Méthode permettant de trier le tableau
+	 * Methode permettant de trier le tableau
 	 */
 	public void trier() {
 		
@@ -92,7 +92,7 @@ public class TriFusion {
 	}
 	
 	/**
-	 * Méthode pour recupérer le tableau
+	 * Methode pour recuperer le tableau
 	 * @return tableau
 	 */
 	public int[] getTab() {

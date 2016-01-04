@@ -11,7 +11,7 @@ public class EvaluationTriFusion {
 	
 	public static void main(String[] args) {		
 		
-		// r�cup�ration nb �l�ments la ligne des commandes
+		// recuperation nb elements la ligne des commandes
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Nombre d'éléments du tableau :");
 		int nbElementsTab = keyboard.nextInt();
@@ -21,14 +21,14 @@ public class EvaluationTriFusion {
 		EvaluationTriFusion.tab = TableauUtils.initTab(nbElementsTab);
 		
 		// affichage tableau avant tri
-		System.out.println("Nombre d'�l�ments du tableau : " + nbElementsTab);
+		System.out.println("Nombre d'elements du tableau : " + nbElementsTab);
 		System.out.println("Tableau avant tri : " + TableauUtils.affiche(EvaluationTriFusion.tab));
 		
 		// tri par comptage
 		TriFusion fusion = new TriFusion(EvaluationTriFusion.tab);
 		fusion.trier();
 		
-		// affichage tableau apr�s tri
-		System.out.println("Tableau ap�s tri : " + TableauUtils.affiche(EvaluationTriFusion.tab));
+		// affichage tableau apres tri
+		System.out.println("Tableau apes tri : " + TableauUtils.affiche(EvaluationTriFusion.tab));
 	}
 }
